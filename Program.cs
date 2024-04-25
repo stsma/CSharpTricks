@@ -35,7 +35,35 @@ namespace main
             //8
             GetNullCoalesce();
 
+            //#9
+            ValueTuple();
+
+            //#10
+            GetAsyncStreams();
+
             Console.ReadKey();
+        }
+
+        /// <summary>
+        /// 10. Asynchronous Streams with IAsyncEnumerable
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private async IAsyncEnumerable<int> GetNumbersAsync()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                await Task.Delay(100); // Simulate asynchronous work
+                yield return i;
+            }
+        }
+
+        /// <summary>
+        /// 9. ValueTuple for Lightweight Data Structures
+        /// </summary>
+        private static void ValueTuple()
+        {
+            var person = (Name: "John", Age: 30);
+            Console.WriteLine($"{person.Name} is {person.Age} years old.");
         }
 
         private static void GetNullCoalesce()
